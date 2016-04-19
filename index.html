@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="productsApp">
+<head>
+	<meta charset="utf-8">
+	<title>Products Gallery</title>
+	<link rel="stylesheet" href="css/products.css">
+	<link rel="stylesheet" href="css/form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="app/controller.js"></script>	
+</head>
+<body>
+	<h1>Products list:</h1>
+	
+	<table class="table-style" ng-controller="ProductListController as productList">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th colspan=2></th>
+            </tr>
+        </thead>
+		<tbody>
+			<tr ng-repeat="product in productList.products">
+				<td>{{product.product_id}}</td>
+				<td>{{product.product_name}}</td>
+				<td>{{product.product_price | currency}}</td>
+				<td><a href="" ng-click="productList.editProduct($index)">edit</a></td>
+				<td><a href="" ng-click="productList.deleteProduct($index)">delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
+

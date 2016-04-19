@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <title>Product list</title>
+    </head>
+
+    <body>
+        <form class="form-style" action="/" method="post">
+            <h2>Product form</h2>
+            <label>
+                <span>product id:</span>
+                <input class="faded" type="text" name="id" value="xxx" readonly>
+            </label>
+            <label>
+                <span>product name:</span>
+                <input type="text" name="product_name" value="xxx" required>
+            </label>
+            <label>
+                <span>product price:</span>
+                <input type="text" name="product_price" pattern="[0-9]+[.[0-9]+]?" value="xxx" required>
+            </label>
+            <label>
+                <span>category:</span>
+                <input type="text" name="category" value="xxx" required>
+            </label>
+            <label>
+                <span>expiration date: </span>
+                <input type="text" name="expiration_date" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/yyyy" value="xxx" required>
+            </label>
+            <label>
+                <span>description:</span>
+                <textarea name="description">xxx</textarea>
+            </label>
+            <label>
+                <span>&nbsp;</span>
+                <input type="submit" class="button" value="Send" />
+            </label>
+        </form>
+    </body>
+</html>
