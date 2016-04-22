@@ -83,3 +83,11 @@
     color: #FFF;
     background-color: #DDEFEF;
 }
+
+input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+}
+
+input.ng-valid.ng-dirty {
+    border-color: #78FA89;
+}

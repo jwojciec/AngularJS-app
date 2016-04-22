@@ -10,7 +10,8 @@ Simple webapp done in AngularJS
 4. npm start
 
 ##TODO:
-1. Form validation
-2. Pull data from microservice
+1. Pull data from microservice
+2. Testing
+
 
 

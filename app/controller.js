@@ -13,17 +13,14 @@
             return productList.currentProduct;
         };
 
-        productList.addNewProduct = function (product) {
-            var newProduct = {
-                product_id: 99,
-                product_name: 'Logitech keyboard',
-                category: 'keyboard',
-                description: 'keyboard description',
-                product_price: 140,
-                expiration_date: '12/12/2016'
-            };
+        productList.getMaxId = function () {
+            //http://stackoverflow.com/questions/4020796/finding-the-max-value-of-an-attribute-in-an-array-of-objects
+            return Math.max.apply(Math,productList.products.map(function(o){return o.product_id;}))
+        };
+
+        productList.addNewProduct = function(product) {
+            product.product_id=productList.getMaxId()+1;
             productList.products.push(product);
-            productList.currentProduct = {};
         };
 
         productList.deleteProduct = function (id) {
@@ -46,6 +43,13 @@
 
         productList.closeForm = function () {
             productList.isFormVisible = false;
+        };
+
+        productList.submitForm = function (product) {
+            if(!product.product_id) {
+                productList.addNewProduct(product);
+            }
+            productList.currentProduct = {};
         };
 
         productList.products = [

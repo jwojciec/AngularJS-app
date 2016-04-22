@@ -55,7 +55,7 @@
         <label>
             <span>product price:</span>
             <input type="text" name="product_price" pattern="[0-9]+[.[0-9]+]?"
-                   ng-model="productList.getCurrentProduct().product_price" required>
+                   ng-model="productList.getCurrentProduct().product_price" type="number" required>
         </label>
         <label>
             <span>category:</span>
@@ -72,7 +72,10 @@
         </label>
         <label>
             <span>&nbsp;</span>
-            <button type="submit" ng-submit="productList.addNewProduct(productList)">Submit</button>
+            <button type="submit" ng-disabled="!productForm.$valid"
+                    ng-click="productForm.$valid && productList.submitForm(productList.getCurrentProduct())">
+                Submit
+            </button>
             <button type="reset" ng-click="productList.closeForm()">Close Form</button>
         </label>
     </form>
