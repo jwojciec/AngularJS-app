@@ -4,7 +4,6 @@
     app.controller('ProductListController', function () {
         var productList = this;
         productList.isFormVisible = false;
-        productList.currentProduct = "";
 
         productList.getAllProducts = function () {
             return productList.products;
@@ -14,7 +13,7 @@
             return productList.currentProduct;
         };
 
-        productList.addNewProduct = function () {
+        productList.addNewProduct = function (product) {
             var newProduct = {
                 product_id: 99,
                 product_name: 'Logitech keyboard',
@@ -23,10 +22,8 @@
                 product_price: 140,
                 expiration_date: '12/12/2016'
             };
-            productList.products.push(newProduct);
-            productList.closeForm();
-            productList.currentProduct = "";
-            productList.product-form.$setPristine();
+            productList.products.push(product);
+            productList.currentProduct = {};
         };
 
         productList.deleteProduct = function (id) {
@@ -44,7 +41,7 @@
 
         productList.openEmptyForm = function () {
             productList.isFormVisible = true;
-            productList.currentProduct = "";
+            productList.currentProduct = {};
         };
 
         productList.closeForm = function () {

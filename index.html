@@ -42,39 +42,38 @@
 </div>
 
 <div class="right">
-    <form class="form-style" name="product-form" ng-submit="productList.addNewProduct()" ng-show="productList.isFormVisible">
+    <form class="form-style" name="productForm" ng-show="productList.isFormVisible" novalidate>
         <h2>Product form</h2>
         <label>
             <span>product id:</span>
-            <input class="faded" type="text" name="id" value="{{productList.getCurrentProduct().product_id}}" readonly>
+            <input class="faded" type="text" name="id" ng-model="productList.getCurrentProduct().product_id" readonly>
         </label>
         <label>
             <span>product name:</span>
-            <input type="text" name="product_name" value="{{productList.getCurrentProduct().product_name}}" required>
+            <input type="text" name="product_name" ng-model="productList.getCurrentProduct().product_name" required>
         </label>
         <label>
             <span>product price:</span>
             <input type="text" name="product_price" pattern="[0-9]+[.[0-9]+]?"
-                   value="{{productList.getCurrentProduct().product_price | currency}}" required>
+                   ng-model="productList.getCurrentProduct().product_price" required>
         </label>
         <label>
             <span>category:</span>
-            <input type="text" name="category" value="{{productList.getCurrentProduct().category}}" required>
+            <input type="text" name="category" ng-model="productList.getCurrentProduct().category" required>
         </label>
         <label>
             <span>expiration date: </span>
             <input type="text" name="expiration_date" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/yyyy"
-                   value="{{productList.getCurrentProduct().expiration_date}}"
-                   required>
+                   ng-model="productList.getCurrentProduct().expiration_date" required>
         </label>
         <label>
             <span>description:</span>
-            <textarea name="description">{{productList.getCurrentProduct().description}}</textarea>
+            <textarea name="description" ng-model="productList.getCurrentProduct().description"></textarea>
         </label>
         <label>
             <span>&nbsp;</span>
-            <input type="submit" id="submit" value="Submit"/>
-            <button ng-click="productList.closeForm()">Close Form</button>
+            <button type="submit" ng-submit="productList.addNewProduct(productList)">Submit</button>
+            <button type="reset" ng-click="productList.closeForm()">Close Form</button>
         </label>
     </form>
 </div>
