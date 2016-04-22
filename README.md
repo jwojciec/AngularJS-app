@@ -10,8 +10,9 @@ Simple webapp done in AngularJS
 4. npm start
 
 ##TODO:
-1. Pull data from microservice
-2. Testing
+1. Separate form controller from product controller
+2. Pull data from microservice
+3. Testing
 
 
 
